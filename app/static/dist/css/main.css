@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+* {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.error {
+	font-weight: bold;
+	font-size: 500%;
+	color: #000000;
+}

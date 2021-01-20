@@ -1,0 +1,24 @@
+CREATE TABLE `files`(
+	`id_file` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`name` VARCHAR(50) NOT NULL,
+	`type` VARCHAR(30) NOT NULL,
+	`url` VARCHAR(150) NOT NULL,
+	`uploaded` DATE NOT NULL
+);
+
+-- MariaDB
+
+CREATE TABLE accounts(
+	`id_account`TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	`nickname` VARCHAR(30) NOT NULL,
+	`secret_key` TINYBLOB NOT NULL,
+	PRIMARY KEY(`id_account`)
+);
+
+-- SQLite3
+
+CREATE TABLE accounts(
+	`id_account` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`nickname` TEXT NOT NULL,
+	`secret_key` BLOB NOT NULL
+);

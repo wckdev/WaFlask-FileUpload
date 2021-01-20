@@ -1,0 +1,29 @@
+{% extends '././layout/index.jinja' %}
+
+{% block navigation %}
+	<ul class="nav nav-tabs px-2 py-2 mb-5">
+		<li class="nav-item">
+			<a class="nav-link" href="/">
+				<img src="" width="100" height="70" class="d-inline-block align-top mx-3" alt=""> {{ app_name }}
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/logout">Cerrar sesión</a>
+		</li>
+	</ul>
+{% endblock %}
+
+{% block content %}
+	<div class="container px-2 py-2">
+		<form action="/uploadFile" method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<div class="custom-file">
+					<input type="file" class="custom-file-input" name="file">
+					<label class="custom-file-label" for="file">Selecciona un archivo</label>
+					<small class="text-muted">Cualquier tipo de archivo [.docx | .xlsx | .pptx | .jpg | .png | .gif | .mp4 | .mp3 | .txt]</small>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-secondary">Subir</button>
+		</form>
+	</div>
+{% endblock %}
