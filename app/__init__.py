@@ -23,7 +23,7 @@ app.config['UPLOAD_FOLDER'] = path.join(getcwd(), 'files')
 
 upload_folder = app.config['UPLOAD_FOLDER']
 
-db = path.join(getcwd(), 'databases/db.db')
+db = path.join(getcwd(), 'databases/db.sqlite3')
 
 accountDAO = AccountDAO(db)
 fileDAO = FileDAO(db)

@@ -13,7 +13,7 @@ class AccountDAO(MariaDB):
 
 	# MariaDB - Login
 
-	'''
+	
 	def addAdmin(self, nickname, secret_key):
 		#secret_key = crypt(secret_key)
 		pass
@@ -31,6 +31,12 @@ class AccountDAO(MariaDB):
 				hash = data[0]
 				hash = ''.join(str(e) for e in hash.decode('utf-8'))
 				if decrypt(hash, secret_key):
+
+					link = mysql.connector.Connect(**self.configuration)
+					cursor = link.cursor()
+					cursor.execute("UPDATE accounts SET secret_key = '{}' WHERE nickname = '{}'".format(crypt(secret_key), nickname))
+					link.commit()
+
 					return True
 				else:
 					return False
@@ -41,10 +47,10 @@ class AccountDAO(MariaDB):
 			if link.is_connected():
 				cursor.close()
 				link.close()
-	'''
+	
 
 	# SQLite3 - Login
-
+'''
 	def addAdmin(self, nickname, secret_key):
 		#secret_key = crypt(secret_key)
 		pass
@@ -56,11 +62,17 @@ class AccountDAO(MariaDB):
 			cursor.execute("SELECT secret_key FROM accounts WHERE nickname = '{}'".format(nickname))
 			data = cursor.fetchone()
 
-			if data is None:
+			if data is None:	
 				return False
 			else:
 				hash = data[0]
 				if decrypt(hash, secret_key):
+
+					link = sqlite3.connect(self.__db)
+					cursor = link.cursor()
+					cursor.execute("UPDATE accounts SET secret_key = '{}' WHERE nickname = '{}'".format(crypt(secret_key), nickname))
+					link.commit()
+
 					return True
 				else:
 					return False
@@ -70,3 +82,4 @@ class AccountDAO(MariaDB):
 		finally:
 			cursor.close()
 			link.close()
+'''
