@@ -13,7 +13,7 @@ class AccountDAO(MariaDB):
 
 	# MariaDB - Login
 
-	
+	'''
 	def addAdmin(self, nickname, secret_key):
 		#secret_key = crypt(secret_key)
 		pass
@@ -47,10 +47,10 @@ class AccountDAO(MariaDB):
 			if link.is_connected():
 				cursor.close()
 				link.close()
-	
+	'''
 
 	# SQLite3 - Login
-'''
+
 	def addAdmin(self, nickname, secret_key):
 		#secret_key = crypt(secret_key)
 		pass
@@ -82,4 +82,3 @@ class AccountDAO(MariaDB):
 		finally:
 			cursor.close()
 			link.close()
-'''
